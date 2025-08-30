@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Roube um Brainrot — 99 Nights in Florest</title>
+  <style>
+    :root{
+      --bg1:#031025; --bg2:#071025; --neon:#4ef3ff; --accent:#a36bff; --glass: rgba(255,255,255,0.06);
+      --mono: 'Segoe UI Mono', 'Courier New', monospace;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;color:#e6f7ff}
+    body{
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(78,243,255,0.06), transparent),
+                  radial-gradient(900px 400px at 90% 80%, rgba(163,107,255,0.03), transparent),
+                  linear-gradient(180deg,var(--bg1),var(--bg2));
+      display:flex;align-items:center;justify-content:center;padding:32px;
+    }
+    .card{
+      width:980px;max-width:98%;border-radius:20px;padding:28px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));backdrop-filter: blur(8px);
+      box-shadow: 0 10px 40px rgba(2,6,23,0.7), inset 0 1px 0 rgba(255,255,255,0.02);
+      border: 1px solid rgba(78,243,255,0.06);
+      position:relative;overflow:hidden;
+    }
+    /* animated grid */
+    .grid-anim{
+      position:absolute;inset:0;pointer-events:none;opacity:0.14;background-image:linear-gradient(90deg, rgba(78,243,255,0.04) 1px, transparent 1px), linear-gradient(0deg, rgba(163,107,255,0.03) 1px, transparent 1px);background-size:60px 60px, 60px 60px;mix-blend-mode:screen;
+      animation: moveGrid 30s linear infinite;
+    }
+    @keyframes moveGrid{from{background-position:0 0,0 0}to{background-position:120px 60px, -120px -60px}}
+
+    header{display:flex;align-items:center;gap:18px;margin-bottom:18px}
+    .logo{width:86px;height:86px;border-radius:14px;background:linear-gradient(135deg,var(--neon),var(--accent));display:flex;align-items:center;justify-content:center;font-weight:700;color:#031025;font-family:var(--mono);letter-spacing:1px;font-size:18px;box-shadow:0 6px 24px rgba(163,107,255,0.08);}
+    h1{margin:0;font-size:28px;letter-spacing:0.6px}
+    h2{margin:0;font-size:14px;color:rgba(230,247,255,0.8);opacity:0.9}
+
+    .subtitle{margin-top:6px;color:var(--neon);font-family:var(--mono);font-size:12px;letter-spacing:1px}
+
+    .content{display:grid;grid-template-columns: 1fr 400px;gap:20px;align-items:start}
+    .left{padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(78,243,255,0.02), rgba(163,107,255,0.01));border:1px solid rgba(255,255,255,0.02)}
+    .right{padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));border:1px solid rgba(255,255,255,0.02)}
+
+    .title-verse{font-size:20px;margin:0 0 10px 0}
+    .verse{font-size:13px;color:rgba(230,247,255,0.9);margin-bottom:16px}
+
+    label{display:block;font-size:12px;margin-bottom:8px;color:rgba(230,247,255,0.85)}
+    textarea{width:100%;min-height:120px;border-radius:10px;padding:12px;background:transparent;border:1px dashed rgba(78,243,255,0.08);color:#dffaff;font-family:var(--mono);font-size:13px;resize:vertical}
+    .field{margin-bottom:12px}
+
+    .controls{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{appearance:none;border:0;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--neon),var(--accent));color:#031025;font-weight:700;cursor:pointer;font-family:var(--mono);letter-spacing:0.6px}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:rgba(230,247,255,0.95)}
+
+    .key-badge{display:inline-flex;align-items:center;gap:10px;padding:10px;border-radius:10px;background:linear-gradient(90deg, rgba(78,243,255,0.06), rgba(163,107,255,0.04));border:1px solid rgba(78,243,255,0.06);font-family:var(--mono)}
+    .note{font-size:12px;color:rgba(230,247,255,0.7);margin-top:8px}
+
+    footer{margin-top:16px;font-size:12px;color:rgba(230,247,255,0.6)}
+
+    /* responsive */
+    @media(max-width:880px){.content{grid-template-columns:1fr;}.right{order:2}}
+  </style>
+</head>
+<body>
+  <div class="card" role="main">
+    <div class="grid-anim" aria-hidden="true"></div>
+
+    <header>
+      <div class="logo">SBS</div>
+      <div>
+        <h1>Roube um Brainrot</h1>
+        <h2 class="subtitle">99 Nights in Florest</h2>
+      </div>
+    </header>
+
+    <div class="content">
+      <section class="left" aria-labelledby="script-title">
+        <h3 id="script-title" class="title-verse">Script</h3>
+        <p class="verse">Copie o conteúdo abaixo e cole no executor compatível. <strong>Observação:</strong> a key é grátis — KEY: <span style="color:var(--accent);font-family:var(--mono)">SNOW</span>.</p>
+
+        <div class="field">
+          <label for="scriptArea">Conteúdo do script (pressione <kbd>Copiar</kbd>)</label>
+          <textarea id="scriptArea" readonly>loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/fc6607930f2b0b3d792cb7486ddc8137.lua"))()</textarea>
+        </div>
+
+        <div class="controls">
+          <button class="btn" id="copyScript">Copiar Script</button>
+          <button class="btn ghost" id="viewRaw" onclick="viewRaw()">Ver puro</button>
+        </div>
+
+        <p class="note">Use com responsabilidade. Este arquivo é fornecido pelo autor e a chave <strong>SNOW</strong> é divulgada como gratuita.</p>
+      </section>
+
+      <aside class="right" aria-labelledby="key-title">
+        <h3 id="key-title" class="title-verse">Chave / Key</h3>
+        <div class="field">
+          <div class="key-badge">
+            <div style="font-size:13px">KEY</div>
+            <div style="font-weight:800;font-family:var(--mono);letter-spacing:1px">SNOW</div>
+            <button class="btn" id="copyKey">Copiar Key</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="keyNote">Observação</label>
+          <textarea id="keyNote" readonly>Esta chave (SNOW) é fornecida como gratuita conforme solicitado. Use-a apenas para fins autorizados.</textarea>
+        </div>
+
+        <div class="controls">
+          <button class="btn ghost" onclick="alert('Key: SNOW')">Mostrar em alerta</button>
+        </div>
+
+        <footer>
+          <div>Compatível com executores que suportam loadstring e HttpGet.</div>
+        </footer>
+      </aside>
+    </div>
+  </div>
+
+  <script>
+    const scriptArea = document.getElementById('scriptArea');
+    const copyScript = document.getElementById('copyScript');
+    const copyKey = document.getElementById('copyKey');
+
+    async function copyToClipboard(text){
+      try{
+        await navigator.clipboard.writeText(text);
+        flash('Copiado!');
+      }catch(e){
+        fallbackCopy(text);
+      }
+    }
+    function fallbackCopy(text){
+      const ta = document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();
+      document.execCommand('copy');document.body.removeChild(ta);flash('Copiado!');
+    }
+
+    function flash(msg){
+      const el = document.createElement('div');el.textContent=msg;el.style.position='fixed';el.style.right='20px';el.style.bottom='20px';el.style.padding='10px 14px';el.style.borderRadius='10px';el.style.background='linear-gradient(90deg,var(--neon),var(--accent))';el.style.color='#031025';el.style.fontFamily='var(--mono)';el.style.zIndex=9999;document.body.appendChild(el);
+      setTimeout(()=>el.style.opacity=0,1400);setTimeout(()=>el.remove(),2000);
+    }
+
+    copyScript.addEventListener('click', ()=>copyToClipboard(scriptArea.value));
+    copyKey.addEventListener('click', ()=>copyToClipboard('SNOW'));
+
+    function viewRaw(){
+      const w = window.open('about:blank','_blank');w.document.write('<pre>'+escapeHtml(scriptArea.value)+'</pre>');w.document.close();
+    }
+
+    function escapeHtml(str){
+      return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+  </script>
+</body>
+</html>
